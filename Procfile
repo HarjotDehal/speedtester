@@ -1,1 +1,1 @@
-web: gunicorn speedtester:speedtester
+web: gunicorn app:app
