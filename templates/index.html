@@ -1,0 +1,77 @@
+
+
+
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Speed Test</title>
+
+<style>
+    @keyframes buttonAnimation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+
+
+<!-- fix this stuff in css tbh.  -->
+
+<div class="content"> 
+    <h1 style="text-align: center; font-size: 60px; text-decoration: underline;"> Speed Test </h1>
+
+    <!-- <p>Test your Internet Speed live with the Python Speedtest Module</p> -->
+<div style=" flex-direction: row">
+    <h4> Download Speed </h4>
+        <div class="download">
+        {{downloadspeed}}
+        </div>
+        
+</div>
+        
+    <h4>Upload Speed</h4>
+    <div class="upload">
+      {{uploadspeed}}
+    </div>
+
+
+    <!-- <h4>Ping</h4>
+    <div class="ping">
+     <h2 id="ping" > {{ping}} </h2>
+    </div> -->
+
+
+<div class="button-group">
+    <button class="speedbutt" > <a style="color: white; text-decoration: none;" href="/speedrun" onclick="load()">Check Speed with Python</a>
+            <!-- <input type="text" name="content" id="content"> -->
+            <!-- <input type="submit" value="Run Test"> -->
+        <!-- Check Speed -->
+    </button>
+
+    <button class="reset"><a style="color: white; text-decoration: none;" href="/"">Reset</a>
+
+
+    </button>
+    
+</div>
+    <p id="clickked" class="nothing" > Loading...</p>
+
+
+</div>
+
+<script>
+
+    var loadmything =document.getElementById('clickked')
+
+    function load(){
+        loadmything.classList.add('something')
+        loadmything.classList.remove('nothing')
+    }
+
+</script>
+
+{% endblock %}
