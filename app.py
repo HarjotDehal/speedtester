@@ -11,9 +11,9 @@ import speedtest
 
 placeholder = '-'
 
-speedtester = Flask(__name__)
+app = Flask(__name__)
 
-@speedtester.route('/speedrun')
+@app.route('/speedrun')
 def speedcheeck():
     sp  = speedtest.Speedtest()
     sp.get_servers()
@@ -30,7 +30,7 @@ def speedcheeck():
 
 
 
-@speedtester.route('/')
+@app.route('/')
 def index ():
     return render_template('index.html', uploadspeed=placeholder, downloadspeed =placeholder)
     # return "hello world"
@@ -44,4 +44,4 @@ def index ():
 
 
 if __name__ == "__main__":
-    speedtester.run(debug=True)
+    app.run(debug=True)
